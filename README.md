@@ -1,41 +1,18 @@
-# Shravani — Day 1: Research Crop Disease ML Approaches
-
-**Role:** Machine Learning Specialist  
-**Date:** Day 1  
-**Theme:** Literature review and ML strategy planning for hyperspectral crop disease classification
-
----
+# Meet — Day 2: Dataset Verification & Acquisition Audit
 
 ## Objectives
+- Perform strict data integrity validation on downloaded Tomato Bacterial Wilt dataset.
+- Validate file structure, naming patterns, matrix keys, array dimensions, and data types across all 293 samples.
+- Establish verified dataset manifest and audit report for the team.
 
-1. Survey the state of the art in machine learning for hyperspectral plant disease detection.
-2. Compare traditional ML algorithms (Random Forest, SVM, XGBoost) against deep learning approaches (1D-CNN, 2D-CNN) for spectral classification.
-3. Design a rigorous ML pipeline appropriate for the Tomato Bacterial Wilt dataset (293 samples, 204 spectral bands, 5 severity classes).
-4. Clarify the scientific distinction between disease *classification* and disease *forecasting* to ensure the project makes honest claims.
+## Deliverables
+- `verify_dataset.py`: Comprehensive automated verification script checking 100% of samples.
+- `dataset_manifest.json`: Verified machine-readable metadata manifest.
+- `data_verification_report.md`: Technical summary of sample distributions, matrix dimensions, and data health.
+- `TEST_RESULTS.md`: Exact console outputs and pass criteria.
+- `CHANGELOG.md`: Progress log from Day 1 to Day 2.
 
-## Day 1 Deliverables
+## Next Steps (Day 3)
+- Implement modular `main project/src/data/loader.py` and `validator.py`.
+- Expose unified API for Prince (preprocessing) and Shravani (ML feature engineering).
 
-| File | Description |
-|------|-------------|
-| `ml_research.md` | Comprehensive literature review on ML for hyperspectral crop disease detection (~1500+ words) |
-| `algorithm_comparison.md` | Side-by-side comparison of LR, RF, SVM, XGBoost, and 1D-CNN for this dataset |
-| `model_plan.md` | Full ML pipeline plan: splitting, cross-validation, class imbalance, hyperparameter search |
-| `classification_vs_forecasting.md` | Scientific distinction between classification and forecasting, and what this dataset actually supports |
-| `CHANGELOG.md` | Day 1 changelog |
-| `TEST_RESULTS.md` | Testing status |
-
-## Key Findings (Summary)
-
-- **Traditional ML** (RF, SVM, XGBoost) is strongly favoured for this dataset given only 293 samples across 204 bands — the classic "wide data" regime where ensemble and kernel methods excel.
-- **Random Forest** and **SVM (RBF kernel)** are recommended as Day 2 baselines due to strong performance on high-dimensional spectral data and built-in robustness.
-- **XGBoost** is the logical next step for improved generalisation.
-- **1D-CNN** should only be explored if baselines plateau and data augmentation can supply sufficient training volume.
-- **Plant-level splitting** is critical to avoid data leakage (multiple spectra from the same plant must not appear in both train and test).
-- The Tomato Wilt dataset supports **severity classification only**, not temporal forecasting.
-
-## Next Steps (Day 2)
-
-- Load preprocessed spectral data from Prince's pipeline.
-- Implement RF and SVM baseline classifiers.
-- Run 5-fold stratified group cross-validation.
-- Generate initial confusion matrices and per-class metrics.

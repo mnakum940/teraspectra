@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0.0",
+  "verification_date": "2024-11-12",
+  "verified_by": "Meet (Project Lead)",
+  "primary_dataset": {
+    "name": "Tomato Bacterial Wilt Severity Identification",
+    "doi": "10.17632/tb4yk4x5nw.1",
+    "author": "Xin Wang",
+    "year": 2023,
+    "license": "CC BY 4.0",
+    "sensor": "Specim IQ Hyperspectral Camera (VNIR)",
+    "spectral_range_nm": [400, 1000],
+    "number_of_bands": 180,
+    "total_samples": 293,
+    "classes": [
+      {"level": 0, "label": "Healthy", "samples": 120},
+      {"level": 1, "label": "Infected (Asymptomatic)", "samples": 68},
+      {"level": 2, "label": "Mild Wilt (1-33%)", "samples": 39},
+      {"level": 3, "label": "Moderate Wilt (34-66%)", "samples": 33},
+      {"level": 4, "label": "Severe Wilt (67-100%)", "samples": 33}
+    ],
+    "matrices_per_sample": {
+      "average_spectrum": {
+        "file_suffix": "_Ave_spe.mat",
+        "key": "Average_spe",
+        "shape": [180, 1],
+        "dtype": "float64"
+      },
+      "pixel_spectrum": {
+        "file_suffix": "_Pixel_spe.mat",
+        "key": "pretrain_pixel_ran_500",
+        "shape": [500, 180],
+        "dtype": "float64"
+      }
+    }
+  }
+}
+

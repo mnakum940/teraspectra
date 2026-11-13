@@ -1,17 +1,13 @@
-# Changelog — Shravani (ML Specialist)
+# Changelog — Meet (Day 2)
 
-## Day 1 — Research Crop Disease ML Approaches
-
+## [Day 2] - 2024-11-12
 ### Added
-- `ml_research.md` — Comprehensive literature review covering traditional ML, deep learning, pitfalls, and evaluation metrics for hyperspectral crop disease detection.
-- `algorithm_comparison.md` — Detailed comparison of Logistic Regression, Random Forest, SVM, XGBoost, and 1D-CNN for 293-sample / 204-band spectral classification.
-- `model_plan.md` — Complete ML pipeline plan including data splitting, cross-validation, class imbalance handling, hyperparameter search, and model serialization.
-- `classification_vs_forecasting.md` — Scientific distinction document clarifying what the Tomato Wilt dataset can and cannot support.
-- `README.md` — Day 1 overview and summary of findings.
-- `TEST_RESULTS.md` — Day 1 testing status.
-- `CHANGELOG.md` — This file.
+- Created `verify_dataset.py` to audit all 293 sample folders across 5 severity classes.
+- Validated presence and shape of both `*Ave_spe.mat` (180, 1) and `*Pixel_spe.mat` (500, 180) across all samples.
+- Discovered and documented actual sample folder naming conventions (`Level0_001` through `Level0_120` 3-digit zero-padding, vs `Level1_01` through `Level4_33` 2-digit zero-padding).
+- Generated verified `dataset_manifest.json` with verified file counts and shapes.
+- Documented complete data verification report in `data_verification_report.md`.
 
-### Research Conclusions
-- Recommended starting with RF/SVM baselines, then XGBoost, then 1D-CNN only if justified.
-- Identified plant-level splitting as critical to avoid data leakage.
-- Confirmed dataset supports classification only (no temporal forecasting).
+### Changed
+- Refined dataset specifications from preliminary estimates (204 bands) to actual dataset dimension (180 usable VNIR bands, edge-clipped for high SNR).
+
