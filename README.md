@@ -1,18 +1,21 @@
-# Meet — Day 2: Dataset Verification & Acquisition Audit
+# Meet — Day 3: Modular Data Loader & Validator Implementation
 
 ## Objectives
-- Perform strict data integrity validation on downloaded Tomato Bacterial Wilt dataset.
-- Validate file structure, naming patterns, matrix keys, array dimensions, and data types across all 293 samples.
-- Establish verified dataset manifest and audit report for the team.
+- Implement production-ready `HyperspectralDataLoader` class in `main project/src/data/loader.py` and local Day 3 snapshot.
+- Implement robust input validation in `main project/src/data/validator.py` and local Day 3 snapshot.
+- Expose standardized interfaces:
+  - `load_average_spectra()`: returns `X` (293, 180), `y` (293,), and `df_metadata`
+  - `load_pixel_spectra(sample_id)`: returns `(500, 180)` array
+- Author and execute automated unit tests verifying matrix dimensions, class values, and data health.
 
 ## Deliverables
-- `verify_dataset.py`: Comprehensive automated verification script checking 100% of samples.
-- `dataset_manifest.json`: Verified machine-readable metadata manifest.
-- `data_verification_report.md`: Technical summary of sample distributions, matrix dimensions, and data health.
-- `TEST_RESULTS.md`: Exact console outputs and pass criteria.
-- `CHANGELOG.md`: Progress log from Day 1 to Day 2.
+- `loader.py`: Reusable loader module with metadata scanning and caching.
+- `validator.py`: Matrix and spectrum validation module.
+- `test_data_loader.py`: Automated unit test suite.
+- `TEST_RESULTS.md`: Execution verification report.
+- `CHANGELOG.md`: Progress log from Day 2 to Day 3.
 
-## Next Steps (Day 3)
-- Implement modular `main project/src/data/loader.py` and `validator.py`.
-- Expose unified API for Prince (preprocessing) and Shravani (ML feature engineering).
+## Next Steps (Day 4)
+- Coordinate multi-class exploratory data analysis (EDA) with Prince and Shravani.
+- Create automated data integrity validation reports and statistical summaries.
 

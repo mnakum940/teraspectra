@@ -1,70 +1,32 @@
-# Test Results — Meet (Day 2)
+# Test Results — Meet (Day 3)
 
 ## Test Execution Details
-- **Date**: 2024-11-12
-- **Script**: `verify_dataset.py`
-- **Target**: `main project/data/raw/tomato_wilt/Tomato bacterial wilt dataset`
-- **Result**: ALL TESTS PASSED (100% Integrity)
+- **Test File**: `test_data_loader.py`
+- **Modules Tested**: `HyperspectralDataLoader`, `DataValidator`
+- **Result**: ALL ASSERTIONS PASSED (100% Success)
 
 ## Execution Output
-```json
-{
-  "status": "PASS",
-  "total_samples": 293,
-  "classes": {
-    "Level 0": {
-      "name": "Healthy (Level 0)",
-      "expected": 120,
-      "found": 120,
-      "valid_average_spe": 120,
-      "valid_pixel_spe": 120,
-      "status": "PASS"
-    },
-    "Level 1": {
-      "name": "Early/Asymptomatic (Level 1)",
-      "expected": 68,
-      "found": 68,
-      "valid_average_spe": 68,
-      "valid_pixel_spe": 68,
-      "status": "PASS"
-    },
-    "Level 2": {
-      "name": "Mild Wilt 1-33% (Level 2)",
-      "expected": 39,
-      "found": 39,
-      "valid_average_spe": 39,
-      "valid_pixel_spe": 39,
-      "status": "PASS"
-    },
-    "Level 3": {
-      "name": "Moderate Wilt 34-66% (Level 3)",
-      "expected": 33,
-      "found": 33,
-      "valid_average_spe": 33,
-      "valid_pixel_spe": 33,
-      "status": "PASS"
-    },
-    "Level 4": {
-      "name": "Severe Wilt 67-100% (Level 4)",
-      "expected": 33,
-      "found": 33,
-      "valid_average_spe": 33,
-      "valid_pixel_spe": 33,
-      "status": "PASS"
-    }
-  },
-  "corrupted_files": [],
-  "sample_shapes": {
-    "average_spe": [180, 1],
-    "pixel_spe": [500, 180]
-  }
-}
+```text
+Testing DataLoader on: D:\Infotact-2\TerraSpectra\main project\data\raw\tomato_wilt\Tomato bacterial wilt dataset
+Scanned 293 sample folders.
+Loaded feature matrix X: shape (293, 180), dtype float64
+Loaded target vector y: shape (293,), classes: [0 1 2 3 4]
+Matrix validation report:
+  valid: True
+  samples_count: 293
+  bands_count: 180
+  min_reflectance: 0.04605674878084337
+  max_reflectance: 0.5292917818651677
+  issues: []
+Loaded pixel spectra for Level0_001: shape (500, 180)
+
+ALL LOADER & VALIDATOR UNIT TESTS PASSED!
 ```
 
-## Summary Criteria
-1. Total plant sample count = 293 (Passed)
-2. Average spectrum matrix present in 293/293 samples (Passed)
-3. Pixel-level spectrum matrix present in 293/293 samples (Passed)
-4. Corrupted or unreadable files = 0 (Passed)
-5. Dimension consistency across entire dataset = 100% (Passed)
+## Validation Checklist
+- Scanned sample count = 293 (Passed)
+- Average spectra matrix shape = `(293, 180)` (Passed)
+- Severity target vector shape = `(293,)` with values in `{0, 1, 2, 3, 4}` (Passed)
+- Zero NaN, zero infinite values across all 52,740 matrix entries (Passed)
+- Pixel-level array shape = `(500, 180)` for spatial-spectral sampling (Passed)
 

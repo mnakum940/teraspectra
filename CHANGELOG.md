@@ -1,13 +1,9 @@
-# Changelog — Meet (Day 2)
+# Changelog — Meet (Day 3)
 
-## [Day 2] - 2024-11-12
+## [Day 3] - 2024-11-12
 ### Added
-- Created `verify_dataset.py` to audit all 293 sample folders across 5 severity classes.
-- Validated presence and shape of both `*Ave_spe.mat` (180, 1) and `*Pixel_spe.mat` (500, 180) across all samples.
-- Discovered and documented actual sample folder naming conventions (`Level0_001` through `Level0_120` 3-digit zero-padding, vs `Level1_01` through `Level4_33` 2-digit zero-padding).
-- Generated verified `dataset_manifest.json` with verified file counts and shapes.
-- Documented complete data verification report in `data_verification_report.md`.
-
-### Changed
-- Refined dataset specifications from preliminary estimates (204 bands) to actual dataset dimension (180 usable VNIR bands, edge-clipped for high SNR).
+- Developed `HyperspectralDataLoader` capable of parsing sample directory hierarchies and extracting `.mat` matrices into clean NumPy arrays.
+- Developed `DataValidator` checking spectral dimensions (180 bands), detecting NaN/Inf anomalies, and verifying biological reflectance bounds.
+- Established shared interface contract in `main project/src/data/` for downstream preprocessing (Prince) and ML modeling (Shravani).
+- Authored and verified `test_data_loader.py` covering scanning, average spectra extraction, and pixel-level sampling.
 
