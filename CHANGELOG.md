@@ -1,9 +1,9 @@
-# Changelog — Meet (Day 3)
+# Changelog — Meet (Day 4)
 
-## [Day 3] - 2024-11-12
+## [Day 4] - 2024-11-12
 ### Added
-- Developed `HyperspectralDataLoader` capable of parsing sample directory hierarchies and extracting `.mat` matrices into clean NumPy arrays.
-- Developed `DataValidator` checking spectral dimensions (180 bands), detecting NaN/Inf anomalies, and verifying biological reflectance bounds.
-- Established shared interface contract in `main project/src/data/` for downstream preprocessing (Prince) and ML modeling (Shravani).
-- Authored and verified `test_data_loader.py` covering scanning, average spectra extraction, and pixel-level sampling.
+- Developed `data_integrity_eda.py` computing band-wise parametric statistics (mean, std, median, min, max, SNR).
+- Generated `main project/reports/tables/band_summary_statistics.csv` tracking all 180 bands.
+- Discovered peak signal-to-noise ratio in Red Edge onset bands (Bands 88–91, $695-705\text{ nm}$, $>22.3\text{ dB}$).
+- Authored and verified `test_data_integrity.py`.
 

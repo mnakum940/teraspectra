@@ -1,21 +1,18 @@
-# Meet — Day 3: Modular Data Loader & Validator Implementation
+# Meet — Day 4: Dataset Integrity Audit & Summary Statistics Export
 
 ## Objectives
-- Implement production-ready `HyperspectralDataLoader` class in `main project/src/data/loader.py` and local Day 3 snapshot.
-- Implement robust input validation in `main project/src/data/validator.py` and local Day 3 snapshot.
-- Expose standardized interfaces:
-  - `load_average_spectra()`: returns `X` (293, 180), `y` (293,), and `df_metadata`
-  - `load_pixel_spectra(sample_id)`: returns `(500, 180)` array
-- Author and execute automated unit tests verifying matrix dimensions, class values, and data health.
+- Perform statistical quality analysis across all 180 continuous bands for all 293 specimens.
+- Calculate signal-to-noise ratio (SNR) in decibels per spectral band.
+- Identify the highest optical fidelity bands across the VNIR region.
+- Export canonical reference table to `main project/reports/tables/band_summary_statistics.csv`.
 
 ## Deliverables
-- `loader.py`: Reusable loader module with metadata scanning and caching.
-- `validator.py`: Matrix and spectrum validation module.
-- `test_data_loader.py`: Automated unit test suite.
-- `TEST_RESULTS.md`: Execution verification report.
-- `CHANGELOG.md`: Progress log from Day 2 to Day 3.
+- `data_integrity_eda.py`: Multi-band statistical auditor and table exporter.
+- `test_data_integrity.py`: Automated assertion check on exported statistics.
+- `data_integrity_report.md`: Technical documentation of signal quality across the spectrum.
+- `TEST_RESULTS.md`: Output log from statistical tests.
+- `CHANGELOG.md`: Progress log from Day 3 to Day 4.
 
-## Next Steps (Day 4)
-- Coordinate multi-class exploratory data analysis (EDA) with Prince and Shravani.
-- Create automated data integrity validation reports and statistical summaries.
+## Next Steps (Day 5)
+- Integrate Prince's spectral preprocessing pipeline (SNV and Savitzky-Golay filtering) into `src/preprocessing/`.
 
