@@ -1,19 +1,21 @@
-# Test Results — Meet (Day 4)
+# Test Results — Meet (Day 5)
 
 ## Test Execution Details
-- **Test File**: `test_data_integrity.py`
-- **Output Verified**: `main project/reports/tables/band_summary_statistics.csv`
-- **Result**: ALL TESTS PASSED
+- **Test File**: `test_pipeline_integration.py`
+- **Modules Tested**: `SpectralPreprocessingPipeline` (fit, transform, save, load)
+- **Result**: ALL ASSERTIONS PASSED
 
 ## Execution Output
 ```text
-Verified summary statistics: 180 bands loaded.
-ALL DATA INTEGRITY & STATISTICAL AUDIT TESTS PASSED!
+SNV + Smoothing pipeline executed successfully, shape: (293, 180)
+SNV + Derivative pipeline executed successfully, shape: (293, 180)
+Pipeline serialization and deserialization verified!
+
+ALL PREPROCESSING PIPELINE INTEGRATION TESTS PASSED!
 ```
 
-## Summary Telemetry
-- Bands audited: 180 / 180
-- Missing or NaN entries: 0
-- Highest SNR band: Band 89 (698.32 nm) with SNR = 22.46 dB
-- Lowest SNR band: Band 179 (1000.00 nm) with SNR = 14.12 dB (expected slight detector sensitivity taper at extreme SWIR edge)
+## Pipeline Architecture Verified
+- `snv_smooth`: Transforms $(293, 180)$ into baseline-corrected, denoised feature representations.
+- `snv_deriv`: Successfully computes numerical derivative spectra with positive Red Edge slope.
+- Serialization check: Saved and reloaded pipeline yields identical numerical outputs ($<10^{-10}$ delta).
 

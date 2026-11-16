@@ -1,18 +1,17 @@
-# Meet — Day 4: Dataset Integrity Audit & Summary Statistics Export
+# Meet — Day 5: Preprocessing Pipeline Integration & Serialization
 
 ## Objectives
-- Perform statistical quality analysis across all 180 continuous bands for all 293 specimens.
-- Calculate signal-to-noise ratio (SNR) in decibels per spectral band.
-- Identify the highest optical fidelity bands across the VNIR region.
-- Export canonical reference table to `main project/reports/tables/band_summary_statistics.csv`.
+- Integrate Prince's normalization and filtering classes into a cohesive Scikit-Learn `Pipeline`.
+- Expose standardized modes: `'snv_smooth'`, `'snv_deriv'`, `'smooth_only'`, and `'raw'`.
+- Implement robust model persistence with `joblib` save and load methods.
+- Verify pipeline execution and serialization integrity via automated integration tests.
 
 ## Deliverables
-- `data_integrity_eda.py`: Multi-band statistical auditor and table exporter.
-- `test_data_integrity.py`: Automated assertion check on exported statistics.
-- `data_integrity_report.md`: Technical documentation of signal quality across the spectrum.
-- `TEST_RESULTS.md`: Output log from statistical tests.
-- `CHANGELOG.md`: Progress log from Day 3 to Day 4.
+- `preprocessing_pipeline.py`: Unified pipeline manager.
+- `test_pipeline_integration.py`: End-to-end integration and persistence test suite.
+- `TEST_RESULTS.md`: Execution verification report.
+- `CHANGELOG.md`: Progress log from Day 4 to Day 5.
 
-## Next Steps (Day 5)
-- Integrate Prince's spectral preprocessing pipeline (SNV and Savitzky-Golay filtering) into `src/preprocessing/`.
+## Next Steps (Day 6)
+- Implement PCA dimensionality reduction and spectral feature extraction interfaces.
 

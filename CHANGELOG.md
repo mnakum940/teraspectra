@@ -1,9 +1,9 @@
-# Changelog — Meet (Day 4)
+# Changelog — Meet (Day 5)
 
-## [Day 4] - 2024-11-12
+## [Day 5] - 2024-11-12
 ### Added
-- Developed `data_integrity_eda.py` computing band-wise parametric statistics (mean, std, median, min, max, SNR).
-- Generated `main project/reports/tables/band_summary_statistics.csv` tracking all 180 bands.
-- Discovered peak signal-to-noise ratio in Red Edge onset bands (Bands 88–91, $695-705\text{ nm}$, $>22.3\text{ dB}$).
-- Authored and verified `test_data_integrity.py`.
+- Developed `SpectralPreprocessingPipeline` in `main project/src/preprocessing/pipeline.py` uniting SNV and Savitzky-Golay transformers.
+- Implemented multi-mode operation (`snv_smooth`, `snv_deriv`, `smooth_only`, `raw`).
+- Implemented serialization (`save()` and `load()`) to persist preprocessing state for downstream production inference in the dashboard.
+- Verified test suite `test_pipeline_integration.py`.
 
