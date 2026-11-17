@@ -1,21 +1,24 @@
-# Test Results — Meet (Day 5)
+# Test Results — Meet (Day 6)
 
 ## Test Execution Details
-- **Test File**: `test_pipeline_integration.py`
-- **Modules Tested**: `SpectralPreprocessingPipeline` (fit, transform, save, load)
+- **Test File**: `test_feature_pipeline.py`
+- **Modules Tested**: `CompositeFeaturePipeline`
 - **Result**: ALL ASSERTIONS PASSED
 
 ## Execution Output
 ```text
-SNV + Smoothing pipeline executed successfully, shape: (293, 180)
-SNV + Derivative pipeline executed successfully, shape: (293, 180)
-Pipeline serialization and deserialization verified!
+Generated representations for 293 samples:
+  full_bands  : shape (293, 180), min=-1.497, max=1.323
+  pca         : shape (293, 8), min=-0.778, max=1.737
+  biomarkers  : shape (293, 12), min=-1.911, max=691.620
+  hybrid      : shape (293, 20), min=-1.911, max=691.620
 
-ALL PREPROCESSING PIPELINE INTEGRATION TESTS PASSED!
+ALL COMPOSITE FEATURE PIPELINE TESTS PASSED!
 ```
 
-## Pipeline Architecture Verified
-- `snv_smooth`: Transforms $(293, 180)$ into baseline-corrected, denoised feature representations.
-- `snv_deriv`: Successfully computes numerical derivative spectra with positive Red Edge slope.
-- Serialization check: Saved and reloaded pipeline yields identical numerical outputs ($<10^{-10}$ delta).
+## Feature Pipeline Checklist
+- 180 full bands processed cleanly with SNV + Savitzky-Golay (Passed)
+- PCA subspace projected down to 8 dimensions (Passed)
+- Domain biomarkers (12 features) computed without division-by-zero or NaNs (Passed)
+- Hybrid concatenation yields exactly $8 + 12 = 20$ features (Passed)
 

@@ -1,17 +1,20 @@
-# Meet — Day 5: Preprocessing Pipeline Integration & Serialization
+# Meet — Day 6: Composite Feature Engineering Pipeline Integration
 
 ## Objectives
-- Integrate Prince's normalization and filtering classes into a cohesive Scikit-Learn `Pipeline`.
-- Expose standardized modes: `'snv_smooth'`, `'snv_deriv'`, `'smooth_only'`, and `'raw'`.
-- Implement robust model persistence with `joblib` save and load methods.
-- Verify pipeline execution and serialization integrity via automated integration tests.
+- Integrate Prince's `SpectralPCATransformer` and `SpectralFeatureExtractor` into a cohesive `CompositeFeaturePipeline`.
+- Expose 4 distinct ML-ready feature representations:
+  1. `full_bands`: 180 SNV-smoothed spectral bands.
+  2. `pca`: 8 Orthogonal Principal Components (99.95% variance).
+  3. `biomarkers`: 12 Domain Physiological Features (indices, REP, moments).
+  4. `hybrid`: 20 features combining PCA scores and domain biomarkers.
+- Provide a unified interface for Shravani's Day 7 baseline modeling.
 
 ## Deliverables
-- `preprocessing_pipeline.py`: Unified pipeline manager.
-- `test_pipeline_integration.py`: End-to-end integration and persistence test suite.
-- `TEST_RESULTS.md`: Execution verification report.
-- `CHANGELOG.md`: Progress log from Day 4 to Day 5.
+- `feature_pipeline.py`: Production composite feature generator.
+- `test_feature_pipeline.py`: Automated assertion test verifying all 4 representations.
+- `TEST_RESULTS.md`: Output test log.
+- `CHANGELOG.md`: Progress log from Day 5 to Day 6.
 
-## Next Steps (Day 6)
-- Implement PCA dimensionality reduction and spectral feature extraction interfaces.
+## Next Steps (Day 7)
+- Coordinate baseline machine learning integration (Logistic Regression, Random Forest, SVM).
 
