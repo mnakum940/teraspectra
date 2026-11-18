@@ -1,9 +1,10 @@
-# Changelog — Meet (Day 6)
+# Changelog — Meet (Day 7)
 
-## [Day 6] - 2024-11-12
+## [Day 7] - 2024-11-12
 ### Added
-- Developed `CompositeFeaturePipeline` in `main project/src/features/pipeline.py` uniting preprocessing, PCA, and domain feature extraction.
-- Standardized 4 feature candidate spaces: `full_bands` (180), `pca` (8), `biomarkers` (12), `hybrid` (20).
-- Confirmed zero data distortion and seamless array concatenation.
-- Authored and verified `test_feature_pipeline.py`.
+- Developed `DiseasePredictionPipeline` bridging raw 180-band spectra to feature extraction and trained classifiers.
+- Integrated calibrated probability dictionary mapping across all 5 clinical stages.
+- Validated end-to-end inference using Shravani's trained Random Forest baseline (`random_forest_baseline.joblib`).
+- Confirmed correct predictions on Healthy (Level 0, $98.9\%$ confidence) and Severe Wilt (Level 4, $74.4\%$ confidence).
+- Authored and verified `test_inference_pipeline.py`.
 

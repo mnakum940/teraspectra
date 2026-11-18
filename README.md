@@ -1,20 +1,17 @@
-# Meet — Day 6: Composite Feature Engineering Pipeline Integration
+# Meet — Day 7: End-to-End Prediction Pipeline Integration
 
 ## Objectives
-- Integrate Prince's `SpectralPCATransformer` and `SpectralFeatureExtractor` into a cohesive `CompositeFeaturePipeline`.
-- Expose 4 distinct ML-ready feature representations:
-  1. `full_bands`: 180 SNV-smoothed spectral bands.
-  2. `pca`: 8 Orthogonal Principal Components (99.95% variance).
-  3. `biomarkers`: 12 Domain Physiological Features (indices, REP, moments).
-  4. `hybrid`: 20 features combining PCA scores and domain biomarkers.
-- Provide a unified interface for Shravani's Day 7 baseline modeling.
+- Implement `DiseasePredictionPipeline` in `main project/src/models/pipeline.py` and local Day 7 snapshot.
+- Connect raw 180-band spectral input $\rightarrow$ 20-D Hybrid feature extraction $\rightarrow$ Model inference $\rightarrow$ Calibrated probability distribution.
+- Test inference with Shravani's trained Random Forest baseline model.
+- Confirm high diagnostic accuracy and calibrated confidence on unseen test samples.
 
 ## Deliverables
-- `feature_pipeline.py`: Production composite feature generator.
-- `test_feature_pipeline.py`: Automated assertion test verifying all 4 representations.
-- `TEST_RESULTS.md`: Output test log.
-- `CHANGELOG.md`: Progress log from Day 5 to Day 6.
+- `model_pipeline.py`: Unified production prediction pipeline.
+- `test_inference_pipeline.py`: Automated end-to-end inference test.
+- `TEST_RESULTS.md`: Execution verification report.
+- `CHANGELOG.md`: Progress log from Day 6 to Day 7.
 
-## Next Steps (Day 7)
-- Coordinate baseline machine learning integration (Logistic Regression, Random Forest, SVM).
+## Next Steps (Day 8)
+- Coordinate model hyperparameter optimization and cross-validation comparisons.
 
